@@ -8,6 +8,8 @@ startProgram = True
 maleNamesFile = 'namesBoys.txt'
 femaleNamesFile = 'namesGirls.txt'
 
+################################## FUNCTIONS ##################################
+
 # reads in data and adds '__' before the name and '**' after the name
 # kind: male or female
 # k: the order of the markov model
@@ -146,6 +148,7 @@ def genNames(lenRange, number, kind='male', k=2):
     return namesLst
         
 ###################################### TESTS ##################################
+
 #genNames([4,10], 5, 'female', k=3)    
 #genNames([2,12], 5, 'female', k=2)   
 #genNames([5,13], 10, 'male', 4) 
@@ -195,7 +198,7 @@ while startProgram:
         
         startProgram = True
     
-        
+###############################################################################        
         
     
     
