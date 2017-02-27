@@ -92,14 +92,12 @@ def genNames(lenRange, number, kind='male', k=2):
     names, orig_names = readInTrainData(kind, k)
     
     transDict = createTransitionMatrix(names, k)
-    
-    parentSeq = tuple(list('_'*k)) # to find the first letter
-    
+        
     namesLst = []
         
     while len(namesLst) <= number: 
-    
-        #nameComplete = False
+        
+        parentSeq = tuple(list('_'*k)) # to find the first letter
         
         name = ''
         
@@ -123,9 +121,7 @@ def genNames(lenRange, number, kind='male', k=2):
             
         
             if nextLetter == '*' and len(name) >= minLen:
-                
-                #nameComplete == True
-                
+                                
                 if name not in orig_names: # only new and novel names are added
                 
                     namesLst.append(name)
@@ -149,7 +145,7 @@ def genNames(lenRange, number, kind='male', k=2):
     return namesLst
         
 
-genNames([4,10], 5, kind='male', k=2)    
+genNames([4,10], 5, kind='female', k=3)    
     
     
     
