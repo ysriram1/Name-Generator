@@ -3,13 +3,14 @@ os.chdir('/Users/Sriram/Desktop/DePaul/Q5/CSC480/Name-Generator')
 
 import random
 
+startProgram = True
 
 maleNamesFile = 'namesBoys.txt'
 femaleNamesFile = 'namesGirls.txt'
 
 # reads in data and adds '__' before the name and '**' after the name
-# kind is male or female
-# k is the order of the markov model
+# kind: male or female
+# k: the order of the markov model
 def readInTrainData(kind='male', k=2):
     
     if kind == 'male':
@@ -28,8 +29,8 @@ def readInTrainData(kind='male', k=2):
     return nameLst, orig_names
     
 # creates transition matrix as a dictionary
-# names is list of names with start and end identifiers added
-# k is the order of the markov model
+# names: list of names with start and end identifiers added
+# k: the order of the markov model
 def createTransitionMatrix(names, k):
     
     countDict = {}
@@ -80,10 +81,10 @@ def createTransitionMatrix(names, k):
     
 
 # returns list of names using a markov chain
-# lenRange is a list with the min and max length of name
-# number is the number of names to return
-# kind is male or female
-# k is the order of the markov model to use
+# lenRange: a list with the min and max length of name
+# number: the number of names to return
+# kind: male or female
+# k: the order of the markov model to use
 
 def genNames(lenRange, number, kind='male', k=2):
     
@@ -144,12 +145,62 @@ def genNames(lenRange, number, kind='male', k=2):
                 
     return namesLst
         
+###################################### TESTS ##################################
+#genNames([4,10], 5, 'female', k=3)    
+#genNames([2,12], 5, 'female', k=2)   
+#genNames([5,13], 10, 'male', 4) 
+#genNames([8,13], 10, 'male', 2) 
+#genNames([8,8], 10, 'male', 1) 
+#genNames([8,10], 10, 'female', 2) 
 
-genNames([4,10], 5, kind='female', k=3)    
+    
+###################################### PROGRAM ################################
+while startProgram:
+    
+    print 'Hello, this program will generate names.'
+    
+    print 'Please answer the following questions, so that the results may be \
+    personalized to your needs '
+    
+    kind = input('What is the gender? (Please answer "male" or "female"): ')
+    
+    number = input('How many names do you need?: ')
+    
+    maxLen = input('What is the maximum permissible length of name?: ')
+    
+    minLen = input('What is the minimum permissible length of name?: ')
+    
+    k = input('What order Markov Chain would you like used in generating the\
+    names? (2 is recommended): ')
+    
+    names = genNames([minLen, maxLen], number, kind, k)
+    
+    print 'Here are the names: '    
+        
+    for name in names:
+        
+        print name
+    
+    print '\n\n\n'
+    
+    genMore = input('Would you like to generate another set of names? ("Yes" or "No"): ')
+    
+    if genMore == 'No':
+        
+        startProgram = False
+        
+        print 'Thank you.'
+        
+    else:
+        
+        startProgram = True
+    
+        
+        
     
     
     
-
+    
             
             
         
