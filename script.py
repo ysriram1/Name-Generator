@@ -13,7 +13,7 @@ femaleNamesFile = 'namesGirls.txt'
 # reads in data and adds '__' before the name and '**' after the name
 # kind: male or female
 # k: the order of the markov model
-def readInTrainData(kind='male', k=2):
+def readInTrainData(kind, k):
     
     if kind == 'male':
         
@@ -88,7 +88,7 @@ def createTransitionMatrix(names, k):
 # kind: male or female
 # k: the order of the markov model to use
 
-def genNames(lenRange, number, kind='male', k=2):
+def genNames(lenRange, number, kind, k):
     
     minLen,maxLen = lenRange
     
