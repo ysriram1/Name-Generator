@@ -1,6 +1,6 @@
 import os
-os.chdir('/Users/Sriram/Desktop/DePaul/Q5/CSC480/Name-Generator')
-
+#os.chdir('/Users/Sriram/Desktop/DePaul/Q5/CSC480/Name-Generator')
+os.chdir('C:/Users/SYARLAG1/Desktop/Name-Generator')
 import random
 
 startProgram = True
@@ -23,7 +23,7 @@ def readInTrainData(kind, k):
         
         data = open(femaleNamesFile, 'r')
 
-    orig_names = data.read().split('\r\n')     
+    orig_names = data.read().split('\r\n') # split('\n') in Windows !!  
     
     # Add '__' to start of name and '**' at end of name
     nameLst = ['_'*k + name + '*'*k for name in orig_names]
@@ -156,6 +156,13 @@ def genNames(lenRange, number, kind, k):
 #genNames([8,8], 10, 'male', 1) 
 #genNames([8,10], 10, 'female', 2) 
 
+
+#genNames([4,10], 5, 'male', k=2)    
+#genNames([5,5], 5, 'female', k=3)   
+#genNames([3,7], 5, 'male', 4) 
+#genNames([5,12], 5, 'female', 3) 
+#genNames([4,6], 5, 'female', 5) 
+#genNames([8,10], 10, 'female', 2) 
     
 ###################################### PROGRAM ################################
 while startProgram:
